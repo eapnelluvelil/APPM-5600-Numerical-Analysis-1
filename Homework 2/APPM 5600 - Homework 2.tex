@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Do not alter this block (unless you're familiar with LaTeX)
+\documentclass{article}
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+\def\Blue#1{\textcolor{blue}{#1}}
+\def\Red#1{\textcolor{red}{#1}}
+\def\Green#1{\textcolor{green}{#1}}
+\def\Reviewed{\centerline{\Blue{\Large \underline{*********REVIEWED TO HERE**************}}} \ \\}
+\def\Magenta#1{\textcolor{magenta}{#1}}
+
+\pagestyle{fancy}
+
+\renewcommand{\qed}{\quad\qedsymbol}
+
+% prevent line break in inline mode
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\rhead{Andrew Lawrence}
+\lhead{APPM 5600: Numerical Analysis I} 
+\chead{\textbf{Homework 2}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	\begin{enumerate}
+		\item (15 pts) Which of the following iterations will converge to the indicated fixed point $x_n$ (provided $x_0$ is sufficiently close to $x_*$)? If it does converge, give the order of convergence;
+		for linear convergence, give the rate of linear convergence.
+		\begin{enumerate}[label=\roman*]
+			\item (5 pts) $x_{n+1} = -16 + 6x_n + \frac{12}{x_n}, \quad x_* = 2$\\
+			\\
+			\textit{Solution:} \\
+			
+			
+			\item (5 pts) $x_{n+1} = \frac{2}{3}x_n + \frac{1}{x^2_n}, \quad x_* = 3^{1/3}$\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item[iii.] (5 pts) $x_{n+1} = \frac{12}{1+x_n}, \quad x_* = 3$\\
+			\\
+			\textit{Solution:}\\
+			
+			
+		\end{enumerate}
+		
+		\item (20 points) In laying water mains, utilities must be concerned with the possibility of freezing. Although soil and weather conditions are complicated, reasonable approximations can be made on the basis of the assumption that soil is uniform in all directions. In that case the temperature in degrees Celsius $T(x, t)$ at a distance $x$ (in meters) below the surface, $t$ seconds after the beginning of a cold snap, approximately satisfies
+		\[\frac{T(x,t)-T_s}{T_i-T_s}=\text{erf}\left(\frac{x}{2\sqrt{\alpha t}}\right)\]
+		where $T_s$ is the constant temperature during a cold period, $T_i$ is the initial soil temperature before the cold snap, $\alpha$ is the thermal conductivity (in meters$^2$ per second), and
+		\[\text{erf}(t) = \frac{2}{\sqrt{\pi}} \int^t_0\exp(-s^2)ds\]
+		
+		Assume that $T_i = 20$ [degrees C], $T_s = -15$ [degrees C], $\alpha = 0.138 \times 10^{-6}$ [meters$^2$ per second].\\
+		
+		For parts ii. and iii., run your experiments with a tolerance of $\epsilon = 10^{-13}$.
+		
+		\begin{enumerate}[label=\roman*]
+			\item (10 pts) We want to determine how deep a water main should be buried so that it will only freeze after 60 days exposure at this constant surface temperature. Formulate the problem as a root finding problem $f(x) = 0$. What is $f$ and what is $f'$? Plot the function $f$ on $[0,\bar{x}]$, where $\bar{x}$ is chosen so that $f(\bar{x}) > 0$.\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item (5 pts) Compute an approximate depth using the Bisection Method with starting values $a_0 = 0$ [meters] and $b_0 = \bar{x}$ [meters].\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item (5 pts) Compute an approximate depth using Newton's Method with starting value $x_0 = 0.01$ [meters].\\
+			What happens if you start with $x_0 = \bar{x}$? Which is your preferred method and why?\\
+			\\
+			\textit{Solution:}\\
+			
+			
+		\end{enumerate}
+		
+		\item (25 points) Consider applying Newton's method to a real cubic polynomial.
+		\begin{enumerate}[label=\roman*]
+			\item (5 pts) In the case that the polynomial has three distinct real roots, $x = \alpha, x = \beta$ and $x = \gamma$, show that the starting guess $x_0 = 1/2(\alpha + \beta)$ will yield the root $\gamma$ in one step.\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item (10 pts) Give a heuristic (e.g. geometric) argument showing that if two roots coincide (say $\beta = \gamma$), there is precisely one starting guess $x_0$ (other than the double root) for which Newton will fail, and that this one separates the basins of attraction for the distinct roots.\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item (10 pts) Extend the argument in part ii. to the case when all three roots again are distinct. Explain why there are now infinitely many starting guesses $x_0$ for which the iteration will fail.\\
+			\\
+			\textit{Solution:}\\
+			
+			
+		\end{enumerate}
+		
+		\item(30 pts) The sequence $x_k$ produced by Newton's method is quadratically convergent to $x_*$ with $f(x_*) = 0, f'(x_*) \neq 0$ and $f''(x)$ continuous at $x_*$.\\
+		Let $f(x) = (x-x_*)^p q(x)$ with $p$ a positive integer with $q$ twice continuously differentiable and $q(x_*) \neq 0$. Note: $f'(x_*) = 0$. In the following subproblems, let $x_k, f_k = f(x_k), e_k = |x_*-x_k|$, etc. These codes should be fully documented.\\
+		\\
+		\begin{enumerate}[label=\roman*]
+			\item (10 pts) Prove that Newton's method converges linearly for f(x).\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item (10 pts) Consider the modified Newton iteration defined by
+			\[x_k+1 = x_k -p\frac{f_k}{f'_k}.\]
+			
+			Prove that if $x_k$ converges to $x_*$ then the rate of convergence is quadratic, i.e. show that
+			\[|e_{k+1}| \leq C|e_k|^2\] 
+			for some positive constant $C$ as $x_k\rightarrow x_*$.\\
+			\\
+			\textit{Solution:}\\
+			
+			
+			\item (10 pts) Write Matlab codes for both Newton and modied Newton methods. Apply these to the function
+			\[f(x) = (x-1)^5\exp(x).\]
+			and compare the results. Use x0 = 0 as a starting point. I would like this in the form of two tables, one for Newton and one for modified Newton. Each of these should have two columns, the first for the iterates $x_k$ and the second for the error $e_k = |x_k-x_*|$. Use \verb|format long e| or equivalent formatting. Do enough iterations in each code to assure a relative error of $10^{-15}$ in the approximate solution $x$. Plot $k$ vs $e_k$. Comment about the plots vs the theory.\\
+			\\
+			\textit{Solution:}\\
+			
+			
+		\end{enumerate}
+		
+		
+		
+		\item (10 pts) Let $x_0; x_1$ be two successive points from a secant method applied to solving $f(x) = 0$ with $f_0 = f(x_0); f_1 = f(x_1)$. Show that regardless of which point $x_0$ or $x_1$ is regarded as the most recent point, the new point derived from the secant step will be the same.\\
+		\\
+		\textit{Solution:}\\
+		
+		
+	\end{enumerate}
+	
+	
+	
+	
+	
+	
+\end{document}

@@ -1,0 +1,18 @@
+% Homework 9
+
+clc;
+clear;
+close all;
+
+n = 3;
+
+S = diag(ones(2*n, 1), 1);
+S(end, 1) = 1;
+
+E = zeros(2*n+1);
+for j = 1:(2*n+1)
+    E(:, j) = exp((0:1:2n)');
+end
+
+x = (1:(2*n+1))';
+disp([S*x, x]);
